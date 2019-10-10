@@ -1,0 +1,14 @@
+package com.example.demo.exception;
+
+public class GenericsExeption extends RuntimeException {
+
+	public GenericsExeption(String message) {
+		super(message);
+	}
+
+	public GenericsExeption(String message, Throwable cause) {
+		super(message, cause);
+	}
+	
+
+}

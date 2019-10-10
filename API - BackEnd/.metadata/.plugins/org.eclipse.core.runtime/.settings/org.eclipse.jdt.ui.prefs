@@ -1,0 +1,13 @@
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="com.example.demo.resources.FuncionarioController"><rhs name\="com.example.demo.resources.FuncionarioController"/></lhs><lhs name\="com.example.demo.domain.Funcionario"><rhs name\="com.example.demo.domain.Funcionario"/></lhs><lhs name\="com.fasterxml.jackson.databind.node.ContainerNode"><rhs name\="com.fasterxml.jackson.databind.node.ObjectNode"/></lhs><lhs name\="com.fasterxml.jackson.databind.node.JsonNodeCreator"><rhs name\="com.fasterxml.jackson.databind.node.ObjectNode"/></lhs><lhs name\="com.fasterxml.jackson.databind.node.BaseJsonNode"><rhs name\="com.fasterxml.jackson.databind.node.ObjectNode"/></lhs><lhs name\="com.fasterxml.jackson.databind.JsonSerializable"><rhs name\="com.fasterxml.jackson.databind.node.ObjectNode"/></lhs><lhs name\="com.fasterxml.jackson.databind.JsonNode"><rhs name\="com.fasterxml.jackson.databind.node.ObjectNode"/></lhs><lhs name\="com.fasterxml.jackson.core.TreeNode"><rhs name\="com.fasterxml.jackson.databind.node.ObjectNode"/></lhs><lhs name\="java.lang.Iterable"><rhs name\="com.fasterxml.jackson.databind.node.ObjectNode"/></lhs><lhs name\="com.fasterxml.jackson.databind.JsonSerializable$Base"><rhs name\="com.fasterxml.jackson.databind.node.ObjectNode"/></lhs><lhs name\="com.fasterxml.jackson.databind.node.ObjectNode"><rhs name\="com.fasterxml.jackson.databind.node.ObjectNode"/></lhs><lhs name\="com.example.demo.service.FuncionarioService"><rhs name\="com.example.demo.service.FuncionarioService"/></lhs></history>
+content_assist_number_of_computers=15
+content_assist_proposals_background=252,252,252
+content_assist_proposals_foreground=33,33,33
+eclipse.preferences.version=1
+org.eclipse.jdt.ui.formatterprofiles.version=16
+org.eclipse.jdt.ui.text.code_templates_migrated=true
+org.eclipse.jdt.ui.text.custom_code_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+org.eclipse.jdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+org.eclipse.jdt.ui.text.templates_migrated=true
+spelling_locale_initialized=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

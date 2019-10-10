@@ -1,0 +1,79 @@
+package com.example.demo;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.example.demo.helper.ValidationData;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class ManterFuncionarioApplicationTests {
+	
+	
+	
+	@Test
+	public void validName() {
+		assertEquals(true, ValidationData.validarNome("dsada"));
+	}
+	
+	@Test
+	public void invalidName1() {
+		assertEquals(true, ValidationData.validarNome("a"));
+	}
+	
+	@Test
+	public void invalidName31() {
+		assertEquals(true, ValidationData.validarNome("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+	}
+	
+	@Test
+	public void validName30() {
+		assertEquals(true, ValidationData.validarNome("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+	}
+	
+	@Test
+	public void invalidNameNumber() {
+		assertEquals(true, ValidationData.validarNome("123"));
+	}
+	
+	
+	@Test
+	public void invalidEmail() {
+		assertEquals(false, ValidationData.validarEmail("dsada"));
+	}
+	
+	@Test
+	public void invalidEmail() {
+		assertEquals(false, ValidationData.validarEmail("dsada"));
+	}
+	@Test
+	public void invalidEmail1() {
+		assertEquals(false, ValidationData.validarEmail("dsada@gmail"));
+	}
+	@Test
+	public void invalidEmail2() {
+		assertEquals(false, ValidationData.validarEmail("@gmail"));
+	}
+	@Test
+	public void invalidEmail3() {
+		assertEquals(false, ValidationData.validarEmail(".com"));
+	}
+	@Test
+	public void invalidEmail4() {
+		assertEquals(false, ValidationData.validarEmail("gmail.com"));
+	}
+	@Test
+	public void invalidEmail5() {
+		assertEquals(true, ValidationData.validarEmail("valido@gmail.com"));
+	}
+	@Test
+	public void invalidEmail6() {
+		assertEquals(false, ValidationData.validarEmail("valido!gmail.com"));
+	}
+
+}
+

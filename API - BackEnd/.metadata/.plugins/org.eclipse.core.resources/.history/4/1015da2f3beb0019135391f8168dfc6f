@@ -1,0 +1,26 @@
+package com.example.demo.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.demo.repository.Funcionario;
+import com.example.demo.domain.Funcionario;
+
+import com.example.demo.exception.GenericsExeption;
+import com.example.demo.helper.ValidationData;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+public class FuncionarioService {
+
+	@Autowired
+	private Funcionario funcionariorepo;
+
+	public String criarFuncionario(Funcionario funcionario) {
+
+		funcionariorepo.save(funcionario);
+
+		throw new GenericsExeption("Já existe um funcionário cadastrado.");
+
+	}
+
+}

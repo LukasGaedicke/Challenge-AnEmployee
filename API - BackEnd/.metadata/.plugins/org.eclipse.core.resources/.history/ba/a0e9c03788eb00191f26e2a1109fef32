@@ -1,0 +1,111 @@
+package com.example.demo.service;
+
+import com.example.demo.domain.Funcionario;
+import com.example.demo.exception.GenericsExeption;
+import com.example.demo.helper.ValidationData;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+public class FuncionarioService {
+
+	public Funcionario buscarFuncionario() {
+		if (Funcionario.getInstance().getNome() != null) {
+			return Funcionario.getInstance();
+		} else {
+			throw new GenericsExeption("O funcionário não está cadastrado.");
+		}
+
+	}
+
+	public ObjectNode cadastrarFuncionario(ObjectNode data) {
+
+		if (Funcionario.getInstance().getNome() == null) {
+			Funcionario.getInstance().setEmail(data.get("email").asText());
+			Funcionario.getInstance().setNome(data.get("nome").asText());
+			Funcionario.getInstance().setSobrenome(data.get("sobrenome").asText());
+			Funcionario.getInstance().setNumeroSocial(data.get("numero").asInt());
+			objectNode.put("sucess", "Funcionário cadastrado com sucesso.");
+			return objectNode;
+		} else {
+			throw new GenericsExeption(objectNode.put("erro", "Já existe um funcionário cadastrado."));
+		}
+
+	}
+
+	public ObjectNode editarFuncionario(ObjectNode data) {
+		objectNode = new ObjectNode(f);
+
+		if (Funcionario.getInstance().getNome() != null) {
+			Funcionario.getInstance().setEmail(data.get("email").asText());
+			Funcionario.getInstance().setNome(data.get("nome").asText());
+			Funcionario.getInstance().setSobrenome(data.get("sobrenome").asText());
+			Funcionario.getInstance().setNumeroSocial(data.get("numero").asInt());
+			objectNode.put("sucess", "Funcionário editado com sucesso.");
+			return objectNode;
+		} else {
+			throw new GenericsExeption(objectNode.put("erro", "Não existe um funcionário cadastrado."));
+		}
+
+	}
+
+	public ObjectNode removerFuncionario(int data) {
+		objectNode = new ObjectNode(f);
+
+		if (Funcionario.getInstance().getNumeroSocial() == data) {
+			Funcionario.setToNull();
+			objectNode.put("sucess", "Funcionário removido com sucesso.");
+			return objectNode;
+		} else {
+			throw new GenericsExeption(objectNode.put("erro", "Não existe um funcionário cadastrado com esse número."));
+		}
+
+	}
+
+	public boolean validarEmail(String email) {
+		objectNode = new ObjectNode(f);
+		if (ValidationData.validarEmail(email)) {
+			return true;
+		} else {
+			throw new GenericsExeption(objectNode.put("erro", "O email está vazio ou inválido."));
+
+		}
+
+	}
+
+	public boolean validarNome(String nome) {
+		objectNode = new ObjectNode(f);
+		if (ValidationData.validarNome(nome) && ValidationData.validarNomeTamanho(nome)) {
+			return true;
+		} else {
+			throw new GenericsExeption(
+					objectNode.put("erro", "O nome deve conter apenas letras e ter de 2 a 30 caracteres."));
+
+		}
+
+	}
+
+	public boolean validarSobrenome(String sobrenome) {
+		objectNode = new ObjectNode(f);
+		if (ValidationData.validarSobrenome(sobrenome) && ValidationData.validarSobrenomeTamanho(sobrenome)) {
+			return true;
+		} else {
+			throw new GenericsExeption(
+					objectNode.put("erro", "O sobrenome deve conter apenas letras e ter de 2 a 50 caracteres."));
+
+		}
+
+	}
+
+	public boolean validarNumero(int numero) {
+		objectNode = new ObjectNode(f);
+
+		if (numero > 0) {
+			return true;
+		} else {
+			throw new GenericsExeption(objectNode.put("erro", "O campo não pode ser vázio e conter apenas números."));
+
+		}
+
+	}
+
+}

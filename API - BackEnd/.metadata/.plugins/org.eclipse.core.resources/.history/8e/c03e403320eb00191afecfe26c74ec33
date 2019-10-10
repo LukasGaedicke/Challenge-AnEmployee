@@ -1,0 +1,14 @@
+package com.example.demo.exception;
+
+public class FuncionarioNaoEncontrado extends RuntimeException {
+
+	
+	public FuncionarioNaoEncontrado(String message) {
+		super(message);
+	}
+	
+	public FuncionarioNaoEncontrado(String message) {
+		super(message, causa);
+	}
+	
+}
