@@ -2,9 +2,11 @@ package com.example.demo.service;
 
 import com.example.demo.domain.Funcionario;
 import com.example.demo.exception.GenericsExeption;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class FuncionarioService {
-
+	
 	public Funcionario buscarFuncionario() {
 		if (Funcionario.getInstance().getNome() != null) {
 			return Funcionario.getInstance();
@@ -14,26 +16,27 @@ public class FuncionarioService {
 
 	}
 
-	public String cadastrarFuncionario(Funcionario data) {
+	public Funcionario cadastrarFuncionario(Funcionario data) {
 		if (Funcionario.getInstance().getNome() == null) {
 			Funcionario.getInstance().setEmail(data.getEmail());
 			Funcionario.getInstance().setNome(data.getNome());
 			Funcionario.getInstance().setSobrenome(data.getSobrenome());
 			Funcionario.getInstance().setNumero(data.getNumero());
-			return "Funcionário cadastrado com sucesso.";
+			return Funcionario.getInstance();
 		} else {
+		
 			throw new GenericsExeption("Já existe um funcionário cadastrado.");
 		}
 
 	}
 
-	public String editarFuncionario(Funcionario data) {
+	public Funcionario editarFuncionario(Funcionario data) {
 		if (Funcionario.getInstance().getNome() != null) {
 			Funcionario.getInstance().setEmail(data.getEmail());
 			Funcionario.getInstance().setNome(data.getNome());
 			Funcionario.getInstance().setSobrenome(data.getSobrenome());
 			Funcionario.getInstance().setNumero(data.getNumero());
-			return "Funcionário editado com sucesso.";
+			return Funcionario.getInstance();
 		} else {
 			throw new GenericsExeption("Não existe um funcionário cadastrado.");
 		}
