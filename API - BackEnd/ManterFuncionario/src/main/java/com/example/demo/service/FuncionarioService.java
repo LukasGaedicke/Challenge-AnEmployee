@@ -16,13 +16,13 @@ public class FuncionarioService {
 
 	}
 
-	public Funcionario cadastrarFuncionario(Funcionario data) {
+	public String cadastrarFuncionario(Funcionario data) {
 		if (Funcionario.getInstance().getNome() == null) {
 			Funcionario.getInstance().setEmail(data.getEmail());
 			Funcionario.getInstance().setNome(data.getNome());
 			Funcionario.getInstance().setSobrenome(data.getSobrenome());
 			Funcionario.getInstance().setNumero(data.getNumero());
-			return Funcionario.getInstance();
+			return "Funcionário cadastrado com sucesso.";
 		} else {
 		
 			throw new GenericsExeption("Já existe um funcionário cadastrado.");
@@ -30,15 +30,18 @@ public class FuncionarioService {
 
 	}
 
-	public Funcionario editarFuncionario(Funcionario data) {
+	public String editarFuncionario(Funcionario data) {
 		if (Funcionario.getInstance().getNome() != null) {
-			Funcionario.getInstance().setEmail(data.getEmail());
-			Funcionario.getInstance().setNome(data.getNome());
-			Funcionario.getInstance().setSobrenome(data.getSobrenome());
-			Funcionario.getInstance().setNumero(data.getNumero());
-			return Funcionario.getInstance();
+			if (Funcionario.getInstance().getId().equals(data.getId())) {
+				Funcionario.getInstance().setNome(data.getNome());
+				Funcionario.getInstance().setSobrenome(data.getSobrenome());
+				Funcionario.getInstance().setNumero(data.getNumero());
+				return "Funcionário editado com sucesso.";
+			}else {
+				throw new GenericsExeption("ID informado é inválido.");
+			}
 		} else {
-			throw new GenericsExeption("Não existe um funcionário cadastrado.");
+			throw new GenericsExeption("O funcionário que você deseja editar não está cadastrado.");
 		}
 
 	}

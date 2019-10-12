@@ -9,6 +9,10 @@ import javax.validation.constraints.Size;
 
 public class Funcionario {
 
+	
+	private String id;
+	
+	
 	@NotEmpty(message = "Por favor, preencha o campo nome.")
 	@NotBlank(message = "O campo não deve conter espaços em branco")
 	@Size(min = 2, max = 30)
@@ -32,12 +36,10 @@ public class Funcionario {
 
 	private static Funcionario funcionarioInstance;
 
-	private Funcionario() {
-
-	}
-
-	public Funcionario(String nome, String sobrenome, String email, String numero) throws UnexpectedTypeException {
+	
+	public Funcionario(String id, String nome, String sobrenome, String email, String numero){
 		super();
+		this.id = id; 
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.email = email;
@@ -48,7 +50,7 @@ public class Funcionario {
 		if (funcionarioInstance == null) {
 			synchronized (Funcionario.class) {
 				if (funcionarioInstance == null) {
-					funcionarioInstance = new Funcionario();
+					funcionarioInstance = new Funcionario("432", null,null,null,null);
 				}
 			}
 		}
@@ -65,6 +67,11 @@ public class Funcionario {
 
 	public String getSobrenome() {
 		return sobrenome;
+	}
+
+	
+	public String getId() {
+		return id;
 	}
 
 	public void setSobrenome(String sobrenome) {

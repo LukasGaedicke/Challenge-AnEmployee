@@ -1,6 +1,7 @@
 
 import React, {useState} from 'react';
 import api from '../../service/api';
+import {Link} from 'react-router-dom'
 
 export default function Listar() {
 
@@ -15,14 +16,13 @@ export default function Listar() {
     event.preventDefault();
 
    
-        const resposta = await api.post('/funcionario', {
+        await api.post('/funcionario', {
           nome, sobrenome, email, numero
         }).then(response => { 
           console.log(response)
         })
         .catch(error => {
-          let errorRes =  error.response.data;
-          document.getElementById("messagemDaValidação").innerHTML = errorRes;
+          //document.getElementById("messagemDaValidação").innerHTML = error.response.data;
         });
 
   }

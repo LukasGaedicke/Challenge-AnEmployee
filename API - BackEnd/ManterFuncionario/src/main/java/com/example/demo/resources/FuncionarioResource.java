@@ -48,6 +48,7 @@ public class FuncionarioResource {
 	@CrossOrigin
 	@RequestMapping(method = RequestMethod.PUT)
 	public ResponseEntity editarFuncionario(@RequestBody @Valid Funcionario data) {
+		System.out.println(data.getNome());
 		funcionarioService = new FuncionarioService();
 		try {
 			return ResponseEntity.status(HttpStatus.OK).body(funcionarioService.editarFuncionario(data));

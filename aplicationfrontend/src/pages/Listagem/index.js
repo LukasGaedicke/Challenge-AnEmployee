@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import api from '../../service/api'
+import { Link } from 'react-router-dom'
 
 
 
@@ -26,10 +27,12 @@ export default function Listar() {
         <p>{funcionario.numero}</p>
     </ul>
 
-    <div class="btn-group">
-  <button>Editar</button>
-  <button>Remover</button>
-</div>
+    <Link to="/editar">
+        <button className= "btn">Editar</button>
+    </Link>
+    <Link to="/cadastrar">
+        <button className= "btn">Cadastrar</button>
+    </Link>
     </>
     )
 }
