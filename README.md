@@ -51,7 +51,7 @@ npm start
 ```
 E o resultado será esse: 
 
-
+<img src="https://github.com/LukasGaedicke/Challenge-AnEmployee/blob/master/use.gif?raw=true">
 
 
 ### Requisitos Tecnológicos
