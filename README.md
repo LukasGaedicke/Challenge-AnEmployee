@@ -1,4 +1,4 @@
-Para informações aprodundas sobre o projeto visite o [Wiki](https://github.com/LukasGaedicke/Challenge-AnEmployee/wiki). 
+
 
 ### Requisitos Tecnológicos
 - Linguagem back-end: Java
@@ -30,6 +30,5 @@ Para informações aprodundas sobre o projeto visite o [Wiki](https://github.com
 
 ### Plano de trabalho
 - Análise dos requisitos;
-   - [Histórias e observações/decisões referentes aos requisitos](https://github.com/LukasGaedicke/Challenge-AnEmployee/wiki/ER) 
 - Projeto da arquitetura;
 - Desenvolvimento/Teste em parelelo.
