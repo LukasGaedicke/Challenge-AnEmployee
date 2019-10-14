@@ -27,6 +27,7 @@ Onde:
 
 # Compile and Build
 ### API 
+Vá até a pasta raiz do projeto (~API - BackEnd/ManterFuncionario/) e execute: 
 ```
 mvn clean package
 ```
@@ -37,7 +38,7 @@ java -jar ManterFuncionario-0.0.1-SNAPSHOT.jar
 ```
 
 ### Front-End 
-Vá até a pasta raiz do projeto e execute:
+Vá até a pasta raiz do projeto (~aplicationfrontend) e execute:
 ```
  npm run build
 ```
