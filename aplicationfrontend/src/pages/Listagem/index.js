@@ -18,7 +18,7 @@ export default function Listar() {
 
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
-  {/* FIM - Coisas do MODAL*/ }
+
 
 
   const [funcionario, setFuncionario] = useState([]);
@@ -29,12 +29,12 @@ export default function Listar() {
     async function carregarFuncionario() {
       const response = await api.get('/funcionario', {})
         .then(response => {
-          document.getElementById("semFuncionario").style.display = "none";
+          document.getElementById("comFuncionario").style.display= "block"
           setFuncionario(response.data);
           setIdF(response.data.id);
         })
         .catch(error => {
-          document.getElementById("comFuncionario").style.display = "none";
+          document.getElementById("semFuncionario").style.display= "block"
         });;
 
 
@@ -56,29 +56,40 @@ export default function Listar() {
 
   return (
     <>
-      <div id="semFuncionario">
-        <p>Não há funcionários cadastrados, cadastre um.</p>
-        <Link to="/cadastrar">
-         <button id="btnCadastrar" className="btn btnGreen">Cadastrar</button>
-        </Link>
+
+      <div id="semFuncionario" hidden>
+        <p>O funcionário não está cadastrado.</p>
+        <hr/>
+        <center>
+          <Link to="/cadastrar">
+            <button id="btnCadastrar" className="btn btnGreen">Cadastrar</button>
+          </Link>
+        </center>
       </div>
 
-      <div id="comFuncionario">
+
+      <div id="comFuncionario" hidden>
+
         <p>Informações do Funcionário</p>
-        <ul className="listagemFuncionario">
-          <p>Nome: {funcionario.nome}</p>
-          <p>{funcionario.sobrenome}</p>
-          <p>{funcionario.email}</p>
-          <p>{funcionario.numero}</p>
-        </ul>
+        <hr/>
+        <center>
+          <div className="card">
+            <div className="container">
+              <img src={require('../../assets/employee.png')} alt="Foto de perfil" />
+              <p><b>Nome Completo:</b> {funcionario.nome} {funcionario.sobrenome}</p>
+              <p><b>E-mail: </b>{funcionario.email}</p>
+              <p><b>Número: </b>{funcionario.numero}</p>
+            </div>
+            <hr/>
+            <div className="inline-buttons">
+              <Link to="/editar">
+                <button className="btn btnBlue">Editar</button>
+              </Link>
+              <button className="btn btnRed" onClick={handleClick}>Remover</button>
+            </div>
+          </div>
+        </center>
 
-
-        <div className="inline-buttons">
-          <Link to="/editar">
-            <button className = "btn btnBlue">Editar</button>
-          </Link>
-          <button className = "btn btnRed" onClick={handleClick}>Remover</button>
-        </div>
         <Popover
           id={id}
           open={open}
@@ -93,7 +104,7 @@ export default function Listar() {
             horizontal: 'center',
           }}
         >
-          <button className="btn" onClick={removerFuncionario}>Deseja mesmo remover?</button>
+          <button className="btn btnConfirm" onClick={removerFuncionario}>Deseja mesmo remover?</button>
         </Popover>
       </div>
 

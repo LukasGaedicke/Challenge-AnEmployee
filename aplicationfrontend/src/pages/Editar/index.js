@@ -39,19 +39,20 @@ export default function Editar() {
     })
       .catch(error => {
         console.log(error)
-        //document.getElementById("messagemDaValidação").innerHTML = error.response.data;
+        document.getElementById("messagemDaValidação").innerHTML = "O funcionário não existe ou falha na conexão.";
       });
 
   }
   return (
     <>
       <p>Editar Funcionário</p>
+      <hr/>
       <form onSubmit={handleSubmit}>
 
         {/* Campo Nome */}
         <label htmlFor="nome">Nome:</label>
-        <input required type="text" id="nome" placeholder="Seu nome."
-          maxlength="30" minlength="2"
+        <input  type="text" id="nome" placeholder="Seu nome."
+          maxlength="30"
           value={nome}
           onChange={event => setNome(event.target.value)}
         />
@@ -59,31 +60,36 @@ export default function Editar() {
 
         {/* Campo Sobrenome */}
         <label htmlFor="sobrenome">Sobrenome</label>
-        <input required type="text" id="sobrenome" placeholder="Seu sobrenome."
+        <input  type="text" id="sobrenome" placeholder="Seu sobrenome."
           value={sobrenome}
-          maxlength="50" minlength="2"
+          maxlength="50" 
           onChange={event => setSobrenome(event.target.value)} />
         <span className="error-message" id="validateLastName"></span>
+       
         {/* Campo E-mail */}
         <label htmlFor="email">E-Mail</label>
-        <input required type="email" id="email" placeholder="Seu e-mail."
+        <input  type="email" id="email" placeholder="Seu e-mail."
           value={email}
           onChange={event => setEmail(event.target.value)} />
         <span className="error-message" id="validateEmail"></span>
+       
         {/* Campo Numero */}
         <label htmlFor="numero">Número</label>
-        <input required id="numero" placeholder="Seu numero."
+        <input  id="numero" placeholder="Seu numero."
           value={numero}
           onChange={event => setNumero(event.target.value)} />
         <span className="error-message" id="validateNumber"></span>
 
         <p className="error-message" id="messagemDaValidação"></p>
+        <center>
+        <hr/>
         <div className="inline-buttons">
           <button className="btn btnGreen">Confirmar</button>
           <Link to="/">
-            <button className="btn">Cancelar</button>
+            <button className="btn btnBlueTwo">Cancelar</button>
           </Link>
         </div>
+        </center>
       </form>
 
     </>

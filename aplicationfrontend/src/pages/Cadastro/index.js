@@ -12,6 +12,7 @@ export default function Listar() {
   const [numero, setNumero] = useState('');
 
   async function handleSubmit(event) {
+          document.getElementById("messagemDaValidaçao").innerHTML = "Já existe um funcionário cadastrado.";
 
     //não atualizar a página
     event.preventDefault();
@@ -22,20 +23,18 @@ export default function Listar() {
     validate.handleChangeValidate('numero', numero);
 
     if (validate.authorizeSumbit()) {
-      console.log(nome);
       await api.post('/funcionario', {
         nome, sobrenome, email, numero
       }).then(response => {
-        console.log(response)
-        window.location = '/';
+         window.location = '/';
 
       })
         .catch(error => {
           console.log(error)
-          document.getElementById("messagemDaValidaçao").innerHTML = "Já existe um funcionário cadastrado.";
+          document.getElementById("messagemDaValidaçao").innerHTML = "Já existe um funcionário cadastrado ou falha na conexão.";
         });
     } else {
-      document.getElementById("messagemDaValidaçao").innerHTML = "Erro ao submeter o formulário.";
+      document.getElementById("messagemDaValidaçao").innerHTML = "Preecha os campos do formulário corretamente.";
 
     }
 
@@ -44,8 +43,8 @@ export default function Listar() {
   return (
     <>
 
-      <p>Inseria suas dados abaixo.</p>
-
+      <p>Preecha os dados do funcionário nos campos abaixo.</p>
+      <hr/>
       <form onSubmit={handleSubmit}>
 
         <label htmlFor="nome">Nome:</label>
@@ -69,12 +68,15 @@ export default function Listar() {
         <span className="error-message" id="validateNumber"></span>
 
         <p className="error-message" id="messagemDaValidaçao"></p>
+        <center>
+        <hr/>
         <div className="inline-buttons">
-          <button className="btn">Registrar</button>
+          <button className="btn btnGreen">Registrar</button>
           <Link to="/">
-            <button className="btn">Voltar</button>
+            <button className="btn btnBlueTwo">Cancelar</button>
           </Link>
         </div>
+        </center>
       </form>
 
     </>
