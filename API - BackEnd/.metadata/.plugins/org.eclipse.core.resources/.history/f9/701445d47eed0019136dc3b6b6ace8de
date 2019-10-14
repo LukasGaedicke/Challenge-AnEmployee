@@ -1,0 +1,14 @@
+package com.example.demo.config;
+
+@Configuration
+public class AppConfig extends WebMvcConfigurerAdapter {
+  @Override
+  public void addCorsMappings(CorsRegistry registry) {
+      registry.addMapping("your cross origin url")
+            .allowedOrigins("your cross origin host/url")
+            .allowedHeaders("Access-Control-Allow-Origin", "*")
+            .allowedHeaders("Access-Control-Allow-Headers", "Content-Type,x-requested-with").maxAge(20000)
+            .allowCredentials(false)
+            .allowedMethods("DELETE");
+ }
+}

@@ -7,9 +7,13 @@ import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.domain.Funcionario;
 import com.example.demo.service.FuncionarioService;
@@ -20,7 +24,7 @@ public class FuncionarioResource {
 
 	private FuncionarioService funcionarioService;
 
-	@CrossOrigin
+	@CrossOrigin( origins = "*" )
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity retornarFuncionario() {
 		funcionarioService = new FuncionarioService();
@@ -33,7 +37,7 @@ public class FuncionarioResource {
 
 	}
 
-	@CrossOrigin
+	@CrossOrigin()
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity criarFuncionario(@RequestBody @Valid Funcionario data) {
 		funcionarioService = new FuncionarioService();
@@ -45,6 +49,20 @@ public class FuncionarioResource {
 
 	}
 
+	/*@CrossOrigin( origins = "*" )
+	@DeleteMapping("/{id}")
+	public String delete(@PathVariable String id) {
+		
+		return id;
+	}*/
+	
+	@CrossOrigin( origins = "*" )
+	@RequestMapping(method = RequestMethod.DELETE)
+	public String delete(String id) {
+		Funcionario.setToNull();
+		return "Deletado";
+	}
+	
 	@CrossOrigin
 	@RequestMapping(method = RequestMethod.PUT)
 	public ResponseEntity editarFuncionario(@RequestBody @Valid Funcionario data) {
@@ -57,15 +75,6 @@ public class FuncionarioResource {
 		}
 	}
 
-	@CrossOrigin
-	@RequestMapping(method = RequestMethod.DELETE)
-	public ResponseEntity excluirFuncionario(@RequestBody Funcionario data) {
-		funcionarioService = new FuncionarioService();
-		try {
-			return ResponseEntity.status(HttpStatus.OK).body(funcionarioService.removerFuncionario(data.getNumero()));
-		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-		}
-	}
+	
 
 }
