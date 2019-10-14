@@ -39,7 +39,7 @@ export default function Editar() {
     })
       .catch(error => {
         console.log(error)
-        document.getElementById("messagemDaValidação").innerHTML = "O funcionário não existe ou falha na conexão.";
+        document.getElementById("messagemDaValidação").innerHTML = "O funcionário não existe.";
       });
 
   }
@@ -51,7 +51,7 @@ export default function Editar() {
 
         {/* Campo Nome */}
         <label htmlFor="nome">Nome:</label>
-        <input  type="text" id="nome" placeholder="Seu nome."
+        <input  type="text" id="nome" placeholder="Digite o nome. (2 a 30 letras)."
           maxlength="30"
           value={nome}
           onChange={event => setNome(event.target.value)}
@@ -60,7 +60,7 @@ export default function Editar() {
 
         {/* Campo Sobrenome */}
         <label htmlFor="sobrenome">Sobrenome</label>
-        <input  type="text" id="sobrenome" placeholder="Seu sobrenome."
+        <input  type="text" id="sobrenome" placeholder="Digite o sobrenome. (2 a 50 letras);"
           value={sobrenome}
           maxlength="50" 
           onChange={event => setSobrenome(event.target.value)} />
@@ -68,14 +68,14 @@ export default function Editar() {
        
         {/* Campo E-mail */}
         <label htmlFor="email">E-Mail</label>
-        <input  type="email" id="email" placeholder="Seu e-mail."
+        <input  type="email" id="email" placeholder="Digite o e-mail."
           value={email}
           onChange={event => setEmail(event.target.value)} />
         <span className="error-message" id="validateEmail"></span>
        
         {/* Campo Numero */}
         <label htmlFor="numero">Número</label>
-        <input  id="numero" placeholder="Seu numero."
+        <input  id="numero" placeholder="Número do NIS (PIS)"
           value={numero}
           onChange={event => setNumero(event.target.value)} />
         <span className="error-message" id="validateNumber"></span>
