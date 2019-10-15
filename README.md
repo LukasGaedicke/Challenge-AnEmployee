@@ -15,7 +15,7 @@ GET to http://localhost:8080/funcionario
 
 PUT to http://localhost:8080/funcionario?nome={NOME}&sobrenome={SOBRENOME}&email={EMAIL}&numero={NUMERO}
 
-DELETE http://localhost:8080/funcionario?id={ID}
+DELETE http://localhost:8080/funcionario/{ID}
 ```
 
 Onde: 
@@ -42,7 +42,7 @@ Vá até a pasta raiz do projeto (~aplicationfrontend) e execute:
 ```
  npm run build
 ```
-Isso irá gerar uma pasta chamada build. Na pasta build execute: 
+Isso irá gerar uma pasta chamada build. Nesta pasta execute: 
 ```
 npm install
 ```
