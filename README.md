@@ -40,13 +40,13 @@ java -jar ManterFuncionario-0.0.1-SNAPSHOT.jar
 ### Front-End 
 Vá até a pasta raiz do projeto (~aplicationfrontend) e execute:
 ```
- npm run build
-```
-Isso irá gerar uma pasta chamada build. Nesta pasta execute: 
-```
 npm install
 ```
 E após baixar as dependências, execute: 
+```
+ npm run build 
+```
+Isso irá gerar uma pasta chamada build. Entre nessa pasta e execute: 
 ```
 npm start
 ```
