@@ -1,5 +1,7 @@
 package com.example.demo.domain;
 
+import java.util.Random;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -7,9 +9,9 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class Funcionario {
-
 	
-	private String id;
+	private static Random r = new Random(); 
+	private int id;
 	
 	
 	@NotEmpty(message = "Por favor, preencha o campo nome.")
@@ -36,7 +38,7 @@ public class Funcionario {
 	private static Funcionario funcionarioInstance;
 
 	
-	public Funcionario(String id, String nome, String sobrenome, String email, String numero){
+	public Funcionario(int id, String nome, String sobrenome, String email, String numero){
 		super();
 		this.id = id; 
 		this.nome = nome;
@@ -49,7 +51,7 @@ public class Funcionario {
 		if (funcionarioInstance == null) {
 			synchronized (Funcionario.class) {
 				if (funcionarioInstance == null) {
-					funcionarioInstance = new Funcionario("432", null,null,null,null);
+					funcionarioInstance = new Funcionario((int) r.nextInt((9999)), null,null,null,null);
 				}
 			}
 		}
@@ -69,7 +71,7 @@ public class Funcionario {
 	}
 
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 

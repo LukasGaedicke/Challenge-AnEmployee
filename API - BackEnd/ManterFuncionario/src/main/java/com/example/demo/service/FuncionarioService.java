@@ -29,7 +29,7 @@ public class FuncionarioService {
 
 	public String editarFuncionario(Funcionario data) {
 		if (Funcionario.getInstance().getNome() != null) {
-			if (Funcionario.getInstance().getId().equals(data.getId())) {
+			if (Funcionario.getInstance().getId() == (data.getId())) {
 				Funcionario.getInstance().setNome(data.getNome());
 				Funcionario.getInstance().setSobrenome(data.getSobrenome());
 				Funcionario.getInstance().setNumero(data.getNumero());
@@ -43,12 +43,12 @@ public class FuncionarioService {
 
 	}
 
-	public String removerFuncionario(String data) {
-		if (Funcionario.getInstance().getNumero().equals(data)) {
+	public String removerFuncionario(int data) {
+		if (Funcionario.getInstance().getId() == data) {
 			Funcionario.setToNull();
 			return "Funcionário removido com sucesso.";
 		} else {
-			throw new GenericsExeption("Não existe um funcionário cadastrado com esse número.");
+			throw new GenericsExeption("Não existe um funcionário cadastrado com esse ID.");
 		}
 
 	}

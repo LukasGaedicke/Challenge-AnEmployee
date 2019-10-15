@@ -43,8 +43,7 @@ export default function Listar() {
   }, []);
 
   async function removerFuncionario() {
-    await api.delete('/funcionario', {}, {
-      idF
+    await api.delete('/funcionario/'+idF, {
     }).then(response => {
       window.location = '/';
     })
