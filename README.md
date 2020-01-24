@@ -1,5 +1,5 @@
 # An Employee
-Manter Funcionário foi desenvilvido para comprium um desafio de código. Neste desafio, uma Rest API foi desenvolvida com **Java 8 + Spring + React+**, para manter um funcionário. 
+Neste desafio, uma Rest API foi desenvolvida com **Java 8 + Spring + React**, para manter um funcionário. 
 
 A aplicação frontend responde por: 
 ```
